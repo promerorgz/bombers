@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "games",
+  "info": {
+    "name": "games"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "date": {
+      "type": "datetime"
+    },
+    "winner": {
+      "type": "string"
+    },
+    "score": {
+      "type": "string"
+    },
+    "home_team": {
+      "type": "string"
+    },
+    "away_team": {
+      "type": "string"
+    },
+    "score_updates": {
+      "type": "string"
+    },
+    "preview": {
+      "type": "text"
+    }
+  }
+}
