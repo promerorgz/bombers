@@ -8,11 +8,11 @@
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
-    "team_name": {
+    "name": {
       "type": "string"
     },
     "division": {

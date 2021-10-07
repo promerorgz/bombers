@@ -26,10 +26,14 @@ const Button = {
     },
     solid: {
       bg: "brand.400",
-      color: "white",
+      color: "gray.dark",
     },
     rounded: {
       borderRadius: 12,
+    },
+    "&:hover": {
+      textDecoration: "none",
+      color: "inherit",
     },
   },
   // The default size and variant values

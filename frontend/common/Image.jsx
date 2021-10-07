@@ -4,6 +4,7 @@ const Image = ({
   image = {
     alternativeText: "",
     name: "",
+    url: "",
   },
   style,
 }) => {

@@ -2,12 +2,13 @@
   "kind": "collectionType",
   "collectionName": "players",
   "info": {
-    "name": "players"
+    "name": "players",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {},
   "attributes": {
@@ -27,9 +28,6 @@
       "type": "string"
     },
     "hometown": {
-      "type": "string"
-    },
-    "position": {
       "type": "string"
     },
     "height": {
@@ -52,6 +50,29 @@
     },
     "date_of_birth": {
       "type": "date"
+    },
+    "division": {
+      "type": "enumeration",
+      "enum": [
+        "D1",
+        "D3"
+      ]
+    },
+    "position": {
+      "type": "integer",
+      "default": 1,
+      "max": 15,
+      "min": 1
+    },
+    "hoverPic": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

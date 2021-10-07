@@ -7,21 +7,30 @@ export default extendTheme({
     Button,
   },
   styles: {
-    a: {
-      textDecoration: "none",
-      _hover: {
-        textDecoration: "none",
-      },
+    html: {
+      height: "100vh",
     },
   },
-
   colors: {
     brand: {
-      900: "#000",
-      800: "#212121",
-      400: "#E2E2E2",
-      transparent: "#e2e2e2",
+      superblack: "#000",
+      black: "#212121",
+      medium: "#404040",
+      light: "#E2E2E2",
+      white: "#fff",
     },
     black: {},
+    gray: {
+      light: "#303030",
+      main: "#212121",
+      dark: "#181818",
+    },
+    gradient: {
+      main:
+        "linear-gradient(90deg, rgba(24,24,24,1) 3%, rgba(56,56,56,1) 37%, rgba(53,53,53,1) 85%)",
+    },
+    shadow: {
+      1: "box-shadow: 0px 4px 4px 0px #00000040",
+    },
   },
 });
