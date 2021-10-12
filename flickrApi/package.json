@@ -1,0 +1,19 @@
+{
+  "name": "flickrapi",
+  "version": "1.0.0",
+  "description": "api to consume flickr photos for bombers website",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dot-env": "0.0.1",
+    "express": "^4.17.1",
+    "flickr-sdk": "^3.10.0",
+    "nodemon": "^2.0.13",
+    "oauth": "^0.9.15"
+  }
+}
