@@ -1,7 +1,7 @@
 import Articles from "../../components/Articles/articles";
 import { fetchAPI } from "../../lib/api";
-import Layout from "../../components/layout";
-import Seo from "../../components/seo";
+import Layout from "../../common/Layout";
+import Seo from "../../common/Seo";
 
 const Category = ({ category, categories }) => {
   const seo = {

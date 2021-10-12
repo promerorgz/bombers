@@ -1,6 +1,5 @@
-import { SimpleGrid, Flex, Box, Grid, GridItem } from "@chakra-ui/layout";
-// import Link from "next/link";
-import React, { useState } from "react";
+import { Grid, GridItem } from "@chakra-ui/layout";
+import React from "react";
 import GameCard from "./GameCard";
 
 const Games = ({ games }) => {

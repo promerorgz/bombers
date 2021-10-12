@@ -28,7 +28,6 @@ import { fetchAPI } from "../lib/api";
 
 const Home = (props) => {
   const { articles, categories, homepage, games, sponsors, ...rest } = props;
-  console.log({ props });
 
   const buttons = [
     {

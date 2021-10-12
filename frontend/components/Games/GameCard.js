@@ -14,7 +14,6 @@ import {
 import { Button, Link, LinkBox, SkeletonText } from "@chakra-ui/react";
 
 import Card from "../../common/Card";
-import Image from "../../common/Image";
 import GameInfo from "./GameInfo";
 
 const GameCard = ({ title = "", link = "", linkDisplay = "", games = [] }) => {
@@ -24,7 +23,6 @@ const GameCard = ({ title = "", link = "", linkDisplay = "", games = [] }) => {
     //   "linear-gradient(to right bottom, #212121 50%, #7f8c8d 50.3%)",
     boxShadow: "0 1px 4px #151515",
   };
-  console.log({ games });
 
   return (
     <Box position="relative" top="-100px" m="auto">

@@ -1,7 +1,6 @@
 import { Avatar } from "@chakra-ui/avatar";
-import { Text, Flex, Box } from "@chakra-ui/layout";
+import { Box, Flex, Text } from "@chakra-ui/layout";
 import React from "react";
-import Image from "../../common/Image";
 
 const Team = ({ team: { name, score, logo }, away, preview }) => {
   const uploadsUrl = (url) => `http://localhost:1339${url}`;

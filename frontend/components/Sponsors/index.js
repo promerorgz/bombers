@@ -1,7 +1,7 @@
 import { Avatar } from "@chakra-ui/avatar";
 import { Stack, Box, Wrap, WrapItem, Heading } from "@chakra-ui/layout";
 import React from "react";
-import Image from "../../common/Image";
+import Pic from "../../common/Pic";
 
 const Sponsors = ({ sponsors }) => {
   return (
@@ -25,7 +25,7 @@ const Sponsors = ({ sponsors }) => {
           return (
             sponsor.level === "gold" && (
               <WrapItem key={sponsor.name}>
-                <Image image={image} size="3xs"></Image>
+                <Pic image={image} size="3xs"></Pic>
               </WrapItem>
             )
           );

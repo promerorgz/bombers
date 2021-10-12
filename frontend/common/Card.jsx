@@ -1,7 +1,7 @@
 import { Box, Flex, LinkBox } from "@chakra-ui/layout";
 import Link from "next/link";
 import React from "react";
-import Image from "./image";
+import Pic from "./Pic";
 
 const Card = ({
   link,
@@ -60,7 +60,7 @@ const Card = ({
     >
       {image && (
         <Box sx={{ display: "flex", flexGrow: 3 }}>
-          <Image image={image} {...imageProps} />
+          <Pic image={image} {...imageProps} />
         </Box>
       )}
       {children}

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "../../common/Image";
+import Image from "../../common/Pic";
 import { Box, LinkBox, Badge, Text, Flex } from "@chakra-ui/layout";
 import styled from "styled-components";
 import { background } from "@chakra-ui/styled-system";

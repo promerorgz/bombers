@@ -2,7 +2,7 @@ import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 import { fetchAPI } from "../../../lib/api";
 import Layout from "../../../common/Layout";
-import Image from "../../../common/Image";
+import Pic from "../../../common/Pic";
 import Seo from "../../../common/Seo";
 import { getStrapiMedia } from "../../../lib/media";
 import gfm from "remark-gfm";
@@ -26,7 +26,16 @@ const ArticleHeader = styled.div`
   text-align: center;
 `;
 
-const Article = ({ article, categories }) => {
+const defaultArticle = {
+  image: {},
+  title: "",
+  description: "",
+  author: {},
+  published_at: "",
+  content: "",
+};
+
+const Article = ({ article = defaultArticle }) => {
   const imageUrl = getStrapiMedia(article.image);
 
   const seo = {
@@ -46,7 +55,7 @@ const Article = ({ article, categories }) => {
   });
 
   return (
-    <Layout categories={categories}>
+    <Layout>
       <Seo seo={seo} />
 
       <Flex
@@ -81,7 +90,7 @@ const Article = ({ article, categories }) => {
           <Flex className="uk-grid-small uk-flex-left" data-uk-grid="true">
             <Box>
               {article.author.picture && (
-                <Image
+                <Pic
                   image={article.author.picture}
                   style={{
                     position: "static",
@@ -130,13 +139,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articles = await fetchAPI(
-    `/articles?slug=${params.slug}&status=published`
-  );
-  const categories = await fetchAPI("/categories");
+  console.log({ params });
+  const [article] =
+    (await fetchAPI(`/articles?slug=${params.slug}&status=published`)) || {};
+
+  console.log({ article });
 
   return {
-    props: { article: articles[0], categories },
+    props: { article },
     revalidate: 1,
   };
 }

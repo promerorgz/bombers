@@ -38,7 +38,6 @@ const PaypalButton = () => {
           });
         },
         onApprove: function (data, actions) {
-          console.log({ actions });
           alert(data.subscriptionID); // You can add optional success message for the subscriber here
         },
       })
