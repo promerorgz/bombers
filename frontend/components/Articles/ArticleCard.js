@@ -14,14 +14,16 @@ const ArticleCard = ({ article, styles, highlight }) => {
       m="16"
     >
       <LinkBox>
-        <Box
-          maxW="5xl"
+        <Flex
+          minH="500px"
+          direction={highlight ? "row" : "column"}
+          maxW="8xl"
           borderWidth="1px"
           overflow="hidden"
           borderRadius="8px"
           borderColor="brand.400"
           cursor="pointer"
-          bg="white"
+          bg="brand.black"
           sx={{
             ...styles,
             transition: "all .2s ease-in-out",
@@ -32,57 +34,66 @@ const ArticleCard = ({ article, styles, highlight }) => {
           }}
           bgGradient="gradient.main"
         >
-          <Image image={article.image} sx={{ objectFit: "cover" }} />
           <Box
-            p="4"
-            ml="4"
-            mr="8"
-            mb="8"
-            w="100px"
-            borderBottom="3px solid #212121"
+            backgroundImage={`http://localhost:1339${article.image.url}`}
+            flexGrow="1"
+            minH="300px"
+            backgroundPosition="center"
+            backgroundSize="cover"
           ></Box>
-          <Box d="flex" alignItems="baseline" m={4}>
-            <Badge
-              borderRadius="full"
-              px="2"
-              bg="brand.800"
-              color="brand.400"
-              mr="4"
-            >
-              {article.category.name}
-            </Badge>
-            <Box
-              color="gray.500"
-              fontWeight="semibold"
-              letterSpacing="wide"
-              fontSize="xs"
-              textTransform="uppercase"
-            >
-              {new Date(article.publishedAt).toLocaleDateString()}
-            </Box>
-          </Box>
-
-          <Flex
-            alignItens="start"
-            direction="column"
-            justifyContent="flex-start"
-            m={4}
-          >
-            <Box fontWeight="semibold" lineHeight="tight">
-              <Text
-                fontSize={highlight ? "2xl" : "xl"}
-                as="h1"
-                fontWeight="bold"
-                textTransform={highlight ? "uppercase" : "none"}
+          <Flex direction="column" p="4">
+            <Box d="flex" alignItems="baseline" m={4}>
+              <Badge
+                borderRadius="full"
+                px="2"
+                bg="brand.light"
+                color="brand.black"
+                mr="4"
               >
-                {article.title}
-              </Text>
+                {article.category.name}
+              </Badge>
+              <Box
+                color="brand.medium"
+                fontWeight="semibold"
+                letterSpacing="wide"
+                fontSize="xs"
+                textTransform="uppercase"
+              >
+                {new Date(article.publishedAt).toLocaleDateString()}
+              </Box>
             </Box>
-            <Box overflowY="scroll">
-              <ReactMarkdown>{article.description}</ReactMarkdown>
-            </Box>
+
+            <Flex
+              alignItems="start"
+              direction="column"
+              justifyContent="flex-start"
+              m={4}
+            >
+              <Box
+                fontWeight="semibold"
+                lineHeight="tight"
+                overflowY="scroll"
+                whiteSpace="nowrap"
+              >
+                <Text
+                  fontSize={highlight ? "2xl" : "xl"}
+                  as="h1"
+                  fontWeight="bolder"
+                  textTransform={highlight ? "uppercase" : "none"}
+                  color="brand.light"
+                  textOverflow="ellipsis"
+                  overflowY="scroll"
+                  whiteSpace="nowrap"
+                >
+                  {article.title}
+                </Text>
+              </Box>
+              <Box overflowY="scroll" color="brand.light">
+                <ReactMarkdown>{article.description}</ReactMarkdown>
+              </Box>
+            </Flex>
           </Flex>
-        </Box>
+        </Flex>
       </LinkBox>
     </Link>
   );

@@ -4,10 +4,13 @@ import { createContext } from "react";
 import { getStrapiMedia } from "../lib/media";
 import { fetchAPI } from "../lib/api";
 import { ChakraProvider } from "@chakra-ui/react";
+import { config } from "@fortawesome/fontawesome-svg-core";
 import theme from "../theme";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
+config.autoAddCss = false;
 
 const MyApp = ({ Component, pageProps, appProps, ...rest }) => {
   const { global } = pageProps;

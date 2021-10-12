@@ -1,27 +1,37 @@
 import { Avatar } from "@chakra-ui/avatar";
-import { Stack, Box, Wrap, WrapItem } from "@chakra-ui/layout";
+import { Stack, Box, Wrap, WrapItem, Heading } from "@chakra-ui/layout";
 import React from "react";
 import Image from "../../common/Image";
 
 const Sponsors = ({ sponsors }) => {
   return (
-    <Wrap spacing="8" align="center">
-      {sponsors.map((sponsor) => {
-        const image = { ...sponsor.image, alternativeText: sponsor.name };
+    <>
+      <Heading
+        as="h3"
+        size="2xl"
+        fontFamily="Big Shoulders Display"
+        fontWeight="700"
+        textTransform="uppercase"
+        mb="8"
+        textDecoration="underline"
+        textUnderlineOffset="10px"
+      >
+        Sponsors
+      </Heading>
+      <Wrap spacing={8} align="center" justifyContent="space-evenly">
+        {sponsors.map((sponsor) => {
+          const image = { ...sponsor.image, alternativeText: sponsor.name };
 
-        return (
-          sponsor.level === "gold" && (
-            <WrapItem>
-              <Avatar
-                size="2xl"
-                name={sponsor.name}
-                src={`http://localhost:1339${sponsor.image.url}`}
-              ></Avatar>
-            </WrapItem>
-          )
-        );
-      })}
-    </Wrap>
+          return (
+            sponsor.level === "gold" && (
+              <WrapItem key={sponsor.name}>
+                <Image image={image} size="3xs"></Image>
+              </WrapItem>
+            )
+          );
+        })}
+      </Wrap>
+    </>
   );
 };
 

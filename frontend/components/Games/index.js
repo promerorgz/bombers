@@ -4,12 +4,8 @@ import React, { useState } from "react";
 import GameCard from "./GameCard";
 
 const Games = ({ games }) => {
-  console.log({ games });
-
-  const upcoming = games.filter((game) => !game.finished);
-
-  const played = games.filter((game) => game.finished);
-  console.log({ upcoming, played });
+  const upcoming = games.filter((game) => !game.finished) || [];
+  const played = games.filter((game) => game.finished) || [];
 
   const byDivision = (gameArray) => {
     return gameArray.reduce(
@@ -26,18 +22,15 @@ const Games = ({ games }) => {
     );
   };
 
-  console.log({ byDivision: byDivision(upcoming) });
-  console.log({ byDivision: byDivision(played) });
-
   const gameCards = [
     {
-      games: upcoming,
+      games: upcoming || [],
       title: "Next Game",
       link: "/schedule",
       linkDisplay: "Schedule",
     },
     {
-      games: played,
+      games: played || [],
       title: "Last Game",
       link: "/schedule",
       linkDisplay: "Results",
@@ -53,7 +46,11 @@ const Games = ({ games }) => {
       m={8}
     >
       {gameCards.map((game) => (
-        <GridItem colSpan={[1, 2, 2, 1, 1]} rowSpan={[2, 1, 1, 2, 2]}>
+        <GridItem
+          key={game.title}
+          colSpan={[1, 2, 2, 1, 1]}
+          rowSpan={[2, 1, 1, 2, 2]}
+        >
           <GameCard {...game} />
         </GridItem>
       ))}

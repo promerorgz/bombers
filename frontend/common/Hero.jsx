@@ -59,14 +59,21 @@ const Hero = ({ text, buttons = [], image, size }) => {
               buttons?.map(({ link, display, color }) => {
                 return (
                   <LinkBox key={`link_${link}`}>
-                    <Link>
+                    <Link
+                      _hover={{
+                        textDecoration: "none",
+                      }}
+                    >
                       <Button
-                        as={link ? "a" : "button"}
                         colorScheme="gray"
                         size="md"
-                        color={color || "brand.400"}
+                        color={color || "brand.light"}
                         href={link || ""}
                         textDecoration="none"
+                        _hover={{
+                          backgroundColor: "#e2e2e2",
+                          color: "#212121",
+                        }}
                       >
                         {display}
                       </Button>

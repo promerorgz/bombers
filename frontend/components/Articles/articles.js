@@ -18,7 +18,7 @@ const Articles = ({ articles }) => {
         article={latestArticle}
         key={`article__left__${latestArticle.slug}`}
       />
-      <SimpleGrid columns={2} spacing={8}>
+      <SimpleGrid columns={[2, 1, 1, 2, 2, 2]} spacing={8}>
         {rightArticles.map((article, i) => {
           return (
             <ArticleCard

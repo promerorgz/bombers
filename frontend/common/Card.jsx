@@ -26,8 +26,9 @@ const Card = ({
 
   const hoverStyles = link
     ? {
+        border: "1px solid #e2e2e2",
         transition: "all .2s ease-in-out",
-        boxShadow: "0px 5px 10px #212121",
+        // boxShadow: "0px 5px 10px #212121",
         _hover: {
           transform: "scale(1.02)",
           boxShadow: "0px 5px 10px #21212150",

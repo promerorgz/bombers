@@ -1,6 +1,7 @@
 const Button = {
   // The styles all button have in common
   baseStyle: {
+    color: "brand.light",
     fontWeight: "bold",
     textTransform: "uppercase",
     borderRadius: 0, // <-- border radius is same for all variants and sizes
@@ -22,18 +23,19 @@ const Button = {
   variants: {
     outline: {
       border: "2px solid",
-      borderColor: "brand.400",
+      borderColor: "brand.light",
+      color: "brand.light",
     },
     solid: {
-      bg: "brand.400",
-      color: "gray.dark",
+      bg: "brand.medium",
+      color: "brand.light",
     },
     rounded: {
       borderRadius: 12,
     },
     "&:hover": {
       textDecoration: "none",
-      color: "inherit",
+      color: "brand.dark",
     },
   },
   // The default size and variant values

@@ -3,9 +3,9 @@ import { Box } from "@chakra-ui/layout";
 import Nav from "./Nav";
 import Hero from "./Hero";
 
-const Layout = ({ children, categories, seo, header, margin }) => {
+const Layout = ({ children, categories, seo, header, margin, bg }) => {
   return (
-    <Flex height="100vh" direction="column">
+    <Flex height="100vh" direction="column" bg={bg}>
       <Nav categories={categories} />
       <Box m={margin ? 8 : 0}>
         {header && (

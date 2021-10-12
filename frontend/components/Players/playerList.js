@@ -65,7 +65,6 @@ const PlayerList = ({ list = [], staff }) => {
               imageProps={{
                 h: "100%",
               }}
-              boxShadow="md"
             >
               <Flex
                 id="text-content"

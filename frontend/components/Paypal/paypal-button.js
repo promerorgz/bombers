@@ -1,7 +1,9 @@
+import { Skeleton } from "@chakra-ui/skeleton";
 import React, { useState, useEffect, memo } from "react";
 
 const PaypalButton = () => {
   const [sdkReady, setSdkReady] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
 
   const addPayPalScript = () => {
     const script = document.createElement("script");
@@ -17,14 +19,14 @@ const PaypalButton = () => {
   };
 
   useEffect(() => {
-    window.paypal ? setSdkReady(true) : addPayPalScript();
+    window?.paypal ? setSdkReady(true) : addPayPalScript();
+    setIsEnabled(true);
   }, []);
 
   useEffect(() => {
     window?.paypal
       ?.Buttons({
         style: {
-          shape: "pill",
           color: "blue",
           layout: "vertical",
           label: "subscribe",
@@ -36,13 +38,18 @@ const PaypalButton = () => {
           });
         },
         onApprove: function (data, actions) {
+          console.log({ actions });
           alert(data.subscriptionID); // You can add optional success message for the subscriber here
         },
       })
       .render("#paypal-button-container-P-9NL41251R87142636MDWJ6MI");
   }, []);
 
-  return <div id="paypal-button-container-P-9NL41251R87142636MDWJ6MI"></div>;
+  return (
+    <Skeleton isLoaded={!isEnabled} minH="20px">
+      <div id="paypal-button-container-P-9NL41251R87142636MDWJ6MI"></div>
+    </Skeleton>
+  );
 };
 
 export default PaypalButton;

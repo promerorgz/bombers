@@ -8,14 +8,16 @@ import {
   Grid,
   Heading,
   Stack,
+  Divider,
+  Center,
 } from "@chakra-ui/layout";
-import { Button, Link, LinkBox } from "@chakra-ui/react";
+import { Button, Link, LinkBox, SkeletonText } from "@chakra-ui/react";
 
 import Card from "../../common/Card";
 import Image from "../../common/Image";
 import GameInfo from "./GameInfo";
 
-const GameCard = ({ title, link, linkDisplay, games = [] }) => {
+const GameCard = ({ title = "", link = "", linkDisplay = "", games = [] }) => {
   const styles = {
     backgroundColor: "#121212",
     // backgroundImage:
@@ -27,36 +29,68 @@ const GameCard = ({ title, link, linkDisplay, games = [] }) => {
   return (
     <Box position="relative" top="-100px" m="auto">
       <Card styles={styles}>
-        <Stack
-          direction="row"
-          // m="auto"
-          p="8"
-          justifyContent="space-around"
-          alignItems="center"
+        <SkeletonText
+          w="80%"
+          m="auto"
+          startColor="brand.medium"
+          endColor="brand.dark"
+          isLoaded={games.length}
+          fadeDuration={0.6}
+          speed={1}
         >
-          {games.map(
-            ({
-              home,
-              away,
-              location,
-              date,
-              home_score,
-              away_score,
-              division,
-            }) => {
-              const gameInfo = {
-                homeTeam: { ...home, score: home_score },
-                awayTeam: { ...away, score: away_score },
-                location: location,
-                date: date,
-              };
+          <Stack
+            direction="row"
+            // m="auto"
+            p="8"
+            justifyContent="space-around"
+            alignItems="center"
+          >
+            {games.map(
+              (
+                {
+                  home,
+                  away,
+                  location,
+                  date,
+                  home_score,
+                  away_score,
+                  division,
+                  slug,
+                },
+                i
+              ) => {
+                const gameInfo = {
+                  homeTeam: { ...home, score: home_score },
+                  awayTeam: { ...away, score: away_score },
+                  location: location,
+                  date: date,
+                };
 
-              return (
-                <GameInfo {...gameInfo} division={division} preview></GameInfo>
-              );
-            }
-          )}
-        </Stack>
+                return (
+                  <>
+                    <GameInfo
+                      key={slug || `${home.name}-vs-${away.name}`}
+                      {...gameInfo}
+                      division={division}
+                      preview
+                    ></GameInfo>
+                    {i === 0 && (
+                      <Center
+                        height="100px"
+                        margin="8px"
+                        alignItems="center"
+                        justifyContent="center"
+                        h="180px"
+                      >
+                        <Divider orientation="vertical" />
+                      </Center>
+                    )}
+                  </>
+                );
+              }
+            )}
+          </Stack>
+        </SkeletonText>
       </Card>
     </Box>
   );

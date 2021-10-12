@@ -13,13 +13,14 @@ const Team = ({ team: { name, score, logo }, away, preview }) => {
         justifyContent="space-between"
         alignItems="center"
         direction={direction}
+        width="100%"
       >
         <Flex
           justifyContent="space-between"
           alignItems="center"
           direction={preview ? "row-reverse" : direction}
         >
-          <Box>
+          <Flex flexGrow="1">
             <Text
               fontWeight={name === "Bombers" ? "extrabold" : "normal"}
               my={0}
@@ -31,7 +32,7 @@ const Team = ({ team: { name, score, logo }, away, preview }) => {
             >
               {name}
             </Text>
-          </Box>
+          </Flex>
           <Box m={4}>
             <Avatar
               bg="brand.200"
